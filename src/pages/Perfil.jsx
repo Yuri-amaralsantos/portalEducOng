@@ -92,7 +92,7 @@ export default function Perfil() {
   };
 
   return (
-    <div>
+    <div style={{ padding: "1rem" }}>
       <h2>Perfil</h2>
 
       {modoEdicao ? (

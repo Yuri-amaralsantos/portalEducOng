@@ -10,9 +10,9 @@ export default function Administracao() {
   ];
 
   return (
-    <div>
+    <div style={{ padding: "1rem" }}>
       <h2>Administração</h2>
-      <hr />
+
       <Tabs tabs={tabs} />
     </div>
   );

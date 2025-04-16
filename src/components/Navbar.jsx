@@ -1,10 +1,11 @@
 // components/Navbar.jsx
-import { useNavigate } from "react-router-dom";
 import { supabase } from "../supabaseClient";
 import { useUser } from "../context/UserContext";
+import { useNavigate } from "react-router-dom";
+import styles from "../styles/Navbar.module.css";
 
 export default function Navbar() {
-  const { user, isAdmin } = useUser();
+  const { user } = useUser();
   const navigate = useNavigate();
 
   const handleLogout = async () => {
@@ -13,50 +14,12 @@ export default function Navbar() {
   };
 
   return (
-    <nav
-      style={{
-        backgroundColor: "#eee",
-        padding: "1rem",
-        display: "flex",
-        justifyContent: "space-between",
-      }}
-    >
-      <div>
-        <button
-          onClick={() => navigate("/home")}
-          style={{ marginRight: "1rem" }}
-        >
-          Início
-        </button>
-        <button
-          onClick={() => navigate("/perfil")}
-          style={{ marginRight: "1rem" }}
-        >
-          Perfil
-        </button>
-        <button
-          onClick={() => navigate("/cursos")}
-          style={{ marginRight: "1rem" }}
-        >
-          Cursos
-        </button>
-        <button
-          onClick={() => navigate("/questoes")}
-          style={{ marginRight: "1rem" }}
-        >
-          Questões
-        </button>
-        {isAdmin && (
-          <button
-            onClick={() => navigate("/admin")}
-            style={{ marginRight: "1rem" }}
-          >
-            Administração
-          </button>
-        )}
+    <nav className={styles.navbarTop}>
+      <div className={styles.logo} onClick={() => navigate("/home")}>
+        InstitutoAbrams
       </div>
-      <div>
-        {user && <span style={{ marginRight: "1rem" }}>{user.email}</span>}
+      <div className={styles.navbarActions}>
+        {user && <span>{user.email}</span>}
         <button onClick={handleLogout}>Logout</button>
       </div>
     </nav>

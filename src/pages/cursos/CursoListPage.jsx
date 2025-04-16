@@ -15,9 +15,9 @@ export default function CursosList() {
   }, []);
 
   return (
-    <div>
+    <div style={{ padding: "1rem" }}>
       <h2>Cursos Disponíveis</h2>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: "1.5rem" }}>
         {cursos.map((curso) => (
           <div
             key={curso.id}
@@ -26,7 +26,7 @@ export default function CursosList() {
               borderRadius: "8px",
               padding: "1rem",
               cursor: "pointer",
-              width: "200px",
+              width: "300px",
             }}
             onClick={() => navigate(`/curso/${curso.id}`)}
           >

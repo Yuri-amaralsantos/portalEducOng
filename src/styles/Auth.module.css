@@ -1,0 +1,78 @@
+/* Container do formulário */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f7f7f7;
+  font-family: "Arial", sans-serif;
+}
+
+/* Formulário estilizado */
+.form {
+  background: white;
+  padding: 3rem;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Permite que o formulário ocupe a largura da tela */
+  max-width: 420px; /* Definir a largura máxima do formulário */
+  transition: all 0.3s ease-in-out;
+}
+
+/* Título do formulário */
+.form h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+  font-size: 2rem;
+}
+
+/* Estilo dos inputs */
+.input {
+  display: block;
+  width: 100%; /* A largura do input será 100% da largura do formulário */
+  padding: 14px; /* Padding maior para inputs */
+  margin: 10px 0; /* Margin apenas no topo e embaixo */
+  border-radius: 10px;
+  border: 1px solid #000000;
+  font-size: 1rem;
+  outline: none;
+  box-sizing: content-box; /* Inclui padding e borda no tamanho total do input */
+  transition: border 0.3s ease;
+}
+
+/* Estilo do botão */
+.button {
+  display: block;
+  width: 100%; /* Botão ocupa 100% da largura do formulário */
+  padding: 14px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-sizing: content-box; /* Garante que a borda e padding sejam incluídos no tamanho */
+}
+
+/* Efeito de hover no botão */
+.button:hover {
+  background-color: #2980b9;
+}
+
+/* Link para registrar-se */
+.link {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.link a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.link a:hover {
+  text-decoration: underline;
+}

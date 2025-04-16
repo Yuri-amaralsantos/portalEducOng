@@ -1,12 +1,7 @@
 import { useState } from "react";
 import { supabase } from "../../supabaseClient";
 import { useNavigate } from "react-router-dom";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import { registerLocale } from "react-datepicker";
-import ptBR from "date-fns/locale/pt-BR";
-
-registerLocale("pt-BR", ptBR);
+import styles from "../../styles/Auth.module.css";
 
 export default function Register() {
   const [email, setEmail] = useState("");
@@ -18,12 +13,8 @@ export default function Register() {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-
     const { data: signUpData, error: signUpError } = await supabase.auth.signUp(
-      {
-        email,
-        password,
-      }
+      { email, password }
     );
 
     if (signUpError) {
@@ -32,13 +23,12 @@ export default function Register() {
     }
 
     const userId = signUpData?.user?.id;
-
     if (userId && nome && dataNascimento) {
       const { error: perfilError } = await supabase.from("perfis").insert({
         id: userId,
         nome,
-        data_nascimento: dataNascimento.toISOString().split("T")[0],
-        cargo: "cliente", // padrão, se quiser
+        data_nascimento: dataNascimento,
+        cargo: "cliente",
       });
 
       if (perfilError) {
@@ -52,49 +42,72 @@ export default function Register() {
   };
 
   return (
-    <div style={{ maxWidth: 400, margin: "auto" }}>
-      <h2>Registrar</h2>
-      <form onSubmit={handleRegister}>
+    <div className={styles.container}>
+      <form onSubmit={handleRegister} className={styles.form}>
+        <h1>Registrar</h1>
+        <label>Nome:</label>
         <input
           type="text"
+          className={styles.input}
           value={nome}
           onChange={(e) => setNome(e.target.value)}
           placeholder="Nome"
           required
         />
-        <br />
         <label>Data de nascimento:</label>
-        <DatePicker
-          selected={dataNascimento}
-          onChange={(date) => setDataNascimento(date)}
-          dateFormat="dd/MM/yyyy"
-          locale="pt-BR"
-          placeholderText="Selecione a data"
+        <input
+          type="text"
+          className={styles.input}
+          value={dataNascimento || ""}
+          onChange={(e) => {
+            let value = e.target.value.replace(/\D/g, ""); // Remove tudo que não for número
+
+            let day = value.slice(0, 2);
+            let month = value.slice(2, 4);
+            let year = value.slice(4, 8);
+
+            // Limita o dia para no máximo 31
+            if (parseInt(day) > 31) day = "31";
+
+            // Limita o mês para no máximo 12
+            if (parseInt(month) > 12) month = "12";
+
+            let finalValue = day;
+            if (month) finalValue += "/" + month;
+            if (year) finalValue += "/" + year;
+
+            setDataNascimento(finalValue);
+          }}
+          placeholder="Dia/Mês/Ano"
+          maxLength={10}
           required
         />
-        <br />
+        <label>Email:</label>
         <input
           type="email"
+          className={styles.input}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email"
           required
         />
-        <br />
+        <label>Senha:</label>
         <input
           type="password"
+          className={styles.input}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Senha"
           required
         />
-        <br />
-        <button type="submit">Registrar</button>
+        <button type="submit" className={styles.button}>
+          Registrar
+        </button>
+        {message && <p className="link">{message}</p>}
+        <p className={styles.link}>
+          Já tem uma conta? <a href="/">Entrar</a>
+        </p>
       </form>
-      {message && <p>{message}</p>}
-      <p>
-        Já tem uma conta? <a href="/">Entrar</a>
-      </p>
     </div>
   );
 }

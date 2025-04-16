@@ -16,7 +16,7 @@ export default function QuestoesList() {
   }, []);
 
   return (
-    <div>
+    <div style={{ padding: "1rem" }}>
       <h2>Lista de Questões</h2>
       <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
         {questoes.map((q) => (

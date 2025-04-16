@@ -14,6 +14,7 @@ import ResponderQuestao from "./pages/questoes/ResponderQuestao";
 import QuestaoForm from "./pages/admin/QuestaoForm";
 import CursoForm from "./pages/admin/CursoForm";
 import Admin from "./pages/admin/Admin";
+import "./App.css";
 
 function App() {
   return (

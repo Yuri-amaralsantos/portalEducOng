@@ -1,0 +1,41 @@
+/* components/Navbar.css */
+.navbarTop {
+  background-color: #9ebb96;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.navbarActions span {
+  margin-right: 1rem;
+}
+/* components/Sidebar.css */
+.sidebar {
+  width: 150px;
+  background-color: #a9c9a9;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.sidebar button {
+  font-weight: bold;
+  margin-bottom: 1rem;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.sidebar button:hover {
+  text-decoration: underline;
+}

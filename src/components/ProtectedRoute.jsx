@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 import { supabase } from "../supabaseClient";
 import Navbar from "./Navbar";
+import Sidebar from "./SideBar";
 
 export default function ProtectedLayout() {
   const [loading, setLoading] = useState(true);
@@ -26,8 +27,11 @@ export default function ProtectedLayout() {
   return (
     <>
       <Navbar />
-      <div style={{ padding: "1rem" }}>
-        <Outlet /> {/* <- AQUI é onde as rotas filhas vão aparecer */}
+      <div style={{ display: "flex" }}>
+        <Sidebar />
+        <main style={{ marginLeft: "50px", flex: 1 }}>
+          <Outlet />
+        </main>
       </div>
     </>
   );
