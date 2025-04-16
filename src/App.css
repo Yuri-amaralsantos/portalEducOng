@@ -1,3 +1,41 @@
 body {
   margin: 0;
 }
+
+button {
+  margin-top: 1rem;
+  margin-right: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #007aff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #005ecb;
+}
+
+input {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: 1px solid #000000;
+  font-size: 1rem;
+  outline: none;
+  box-sizing: content-box;
+  transition: border 0.3s ease;
+}
+
+.card {
+  background-color: #c9d1c9;
+  border: 1px solid #7a7979;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}

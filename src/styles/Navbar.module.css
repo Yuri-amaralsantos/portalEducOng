@@ -13,13 +13,19 @@
   font-size: 1.2rem;
 }
 
-.navbarActions span {
-  margin-right: 1rem;
+.navbarActions {
+  display: flex;
+  align-items: center;
 }
+
+.navbarActions button {
+  margin: 0 1rem;
+}
+
 /* components/Sidebar.css */
 .sidebar {
   width: 150px;
-  background-color: #a9c9a9;
+  background-color: #bdcfbd;
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -27,9 +33,9 @@
 }
 
 .sidebar button {
-  font-weight: bold;
   margin-bottom: 1rem;
   background: none;
+  color: black;
   border: none;
   text-align: left;
   font-size: 1rem;
@@ -37,5 +43,5 @@
 }
 
 .sidebar button:hover {
-  text-decoration: underline;
+  background: #79bb8d;
 }

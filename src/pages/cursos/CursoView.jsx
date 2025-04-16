@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { supabase } from "../../supabaseClient";
+import styles from "../../styles/Curso.module.css";
 
 export default function CursoView() {
   const { id } = useParams();
@@ -31,23 +32,27 @@ export default function CursoView() {
   }, [id]);
 
   return (
-    <div>
-      {curso && <h2>{curso.nome}</h2>}
-      <h3>Aulas</h3>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
-        {aulas.map((aula) => (
+    <div className={styles.container}>
+      {curso && (
+        <div className={styles.cursoInfo}>
+          <h2>{curso.nome}</h2>
+          <p>
+            <strong>Categoria:</strong>{" "}
+            {curso.categoria || "Sem categoria definida."}
+          </p>
+          <p>{curso.descricao || "Sem descrição disponível."}</p>
+        </div>
+      )}
+
+      <h3 className={styles.tituloAulas}>Aulas</h3>
+      <div className={styles.grid}>
+        {aulas.map((aula, index) => (
           <div
             key={aula.id}
-            style={{
-              border: "1px solid #ccc",
-              padding: "1rem",
-              borderRadius: "8px",
-              cursor: "pointer",
-              width: "200px",
-            }}
+            className="card"
             onClick={() => navigate(`/aula/${aula.id}`)}
           >
-            <h4>{aula.nome}</h4>
+            <h4>Aula {index + 1}</h4>
           </div>
         ))}
       </div>

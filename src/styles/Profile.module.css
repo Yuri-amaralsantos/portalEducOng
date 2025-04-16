@@ -1,0 +1,33 @@
+.perfilContainer {
+  max-width: 100%;
+  margin: 2rem 0;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+.perfilInfo {
+  padding: 1.5rem;
+  border-top: 4px solid #fff;
+  background-color: #f9f9f9;
+}
+
+.perfilInfo h2 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.perfilInfo p {
+  margin: 0.5rem 0;
+  color: #555;
+}
+
+.perfilEdicao input {
+  width: 300px;
+}
+
+.mensagem {
+  padding: 1rem;
+  color: green;
+}
