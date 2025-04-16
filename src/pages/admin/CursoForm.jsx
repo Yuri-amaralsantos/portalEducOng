@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { supabase } from "../supabaseClient";
+import { supabase } from "../../supabaseClient";
 import { useParams, useNavigate } from "react-router-dom";
 
 export default function CursoForm() {

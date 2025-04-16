@@ -1,19 +1,19 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import AuthRedirect from "./components/AuthRedirect";
+import AuthRedirect from "./components/auth/AuthRedirect";
 import ProtectedLayout from "./components/ProtectedRoute";
-import AdminRoute from "./components/AdminRoute";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+import AdminRoute from "./components/admin/AdminRoute";
+import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
 import Home from "./pages/Home";
 import Perfil from "./pages/Perfil";
-import CursosList from "./pages/CursoListPage";
-import CursoView from "./pages/CursoView";
-import AulaView from "./pages/AulaView";
-import Admin from "./pages/Admin";
-import QuestoesList from "./pages/QuestoesListPage";
-import ResponderQuestao from "./pages/ResponderQuestao";
-import QuestaoForm from "./pages/QuestaoForm";
-import CursoForm from "./pages/CursoForm";
+import CursosList from "./pages/cursos/CursoListPage";
+import CursoView from "./pages/cursos/CursoView";
+import AulaView from "./pages/cursos/AulaView";
+import QuestoesList from "./pages/questoes/QuestoesListPage";
+import ResponderQuestao from "./pages/questoes/ResponderQuestao";
+import QuestaoForm from "./pages/admin/QuestaoForm";
+import CursoForm from "./pages/admin/CursoForm";
+import Admin from "./pages/admin/Admin";
 
 function App() {
   return (

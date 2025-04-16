@@ -1,7 +1,7 @@
 // pages/Administracao.jsx
-import Tabs from "../components/Tabs";
-import CursosList from "../components/CursoList";
-import QuestoesList from "../components/QuestoesList";
+import Tabs from "../../components/admin/Tabs";
+import CursosList from "../../components/admin/CursoList";
+import QuestoesList from "../../components/admin/QuestoesList";
 
 export default function Administracao() {
   const tabs = [

@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 import { supabase } from "../supabaseClient";
 import Navbar from "./Navbar";
-import { useUser } from "../context/UserContext";
 
 export default function ProtectedLayout() {
   const [loading, setLoading] = useState(true);

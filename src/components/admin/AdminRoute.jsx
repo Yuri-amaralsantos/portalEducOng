@@ -1,6 +1,6 @@
 // components/AdminRoute.jsx
 import { Navigate } from "react-router-dom";
-import { useUser } from "../context/UserContext";
+import { useUser } from "../../context/UserContext";
 
 export default function AdminRoute({ children }) {
   const { isAdmin, loading } = useUser();
