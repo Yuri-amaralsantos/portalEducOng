@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { supabase } from "../supabaseClient";
+import { useNavigate } from "react-router-dom";
 
 export default function QuestaoForm() {
+  const navigate = useNavigate();
   const [tema, setTema] = useState("");
   const [texto, setTexto] = useState("");
   const [alternativas, setAlternativas] = useState({
@@ -50,7 +52,7 @@ export default function QuestaoForm() {
   };
 
   return (
-    <div style={{ marginTop: "2rem" }}>
+    <div>
       <h3>Criar Nova Questão</h3>
       <form onSubmit={handleSubmit}>
         <input
@@ -93,6 +95,7 @@ export default function QuestaoForm() {
           </select>
         </label>
         <button type="submit">Criar Questão</button>
+        <button onClick={() => navigate("/admin")}>Voltar</button>
       </form>
       {mensagem && <p>{mensagem}</p>}
     </div>

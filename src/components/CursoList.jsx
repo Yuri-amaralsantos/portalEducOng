@@ -1,9 +1,8 @@
-// components/CursoPainel.jsx
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { supabase } from "../supabaseClient";
 
-export default function CursoPainel() {
+export default function CursoList() {
   const [cursos, setCursos] = useState([]);
 
   useEffect(() => {
@@ -35,10 +34,9 @@ export default function CursoPainel() {
 
   return (
     <div>
-      <Link to="/cursos/novo">
-        <button style={{ marginBottom: "1rem" }}>Criar Novo Curso</button>
+      <Link to={`/admin/curso/novo`}>
+        <button style={{ marginBottom: "0.5rem" }}>Novo Curso</button>
       </Link>
-
       <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
         {cursos.map((curso) => (
           <div
@@ -51,7 +49,7 @@ export default function CursoPainel() {
             }}
           >
             <h3>{curso.nome}</h3>
-            <Link to={`/cursos/${curso.id}`}>
+            <Link to={`/admin/curso/${curso.id}`}>
               <button style={{ marginBottom: "0.5rem" }}>Editar</button>
             </Link>
             <button

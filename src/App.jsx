@@ -6,13 +6,14 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
 import Perfil from "./pages/Perfil";
-import CursosList from "./pages/CursoList";
-import CursoForm from "./pages/CursoForm";
+import CursosList from "./pages/CursoListPage";
 import CursoView from "./pages/CursoView";
 import AulaView from "./pages/AulaView";
 import Admin from "./pages/Admin";
-import QuestoesList from "./pages/QuestoesList";
+import QuestoesList from "./pages/QuestoesListPage";
 import ResponderQuestao from "./pages/ResponderQuestao";
+import QuestaoForm from "./pages/QuestaoForm";
+import CursoForm from "./pages/CursoForm";
 
 function App() {
   return (
@@ -26,8 +27,6 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/perfil" element={<Perfil />} />
         <Route path="/cursos" element={<CursosList />} />
-        <Route path="/cursos/novo" element={<CursoForm />} />
-        <Route path="/cursos/:id" element={<CursoForm />} />
         <Route path="/curso/:id" element={<CursoView />} />
         <Route path="/aula/:id" element={<AulaView />} />
         <Route path="/questoes/" element={<QuestoesList />} />
@@ -37,6 +36,38 @@ function App() {
           element={
             <AdminRoute>
               <Admin />
+            </AdminRoute>
+          }
+        />
+        <Route
+          path="/admin/curso/novo"
+          element={
+            <AdminRoute>
+              <CursoForm />
+            </AdminRoute>
+          }
+        />
+        <Route
+          path="/admin/curso/:id"
+          element={
+            <AdminRoute>
+              <CursoForm />
+            </AdminRoute>
+          }
+        />
+        <Route
+          path="/admin/questao/novo"
+          element={
+            <AdminRoute>
+              <QuestaoForm />
+            </AdminRoute>
+          }
+        />
+        <Route
+          path="/admin/questao/:id"
+          element={
+            <AdminRoute>
+              <QuestaoForm />
             </AdminRoute>
           }
         />

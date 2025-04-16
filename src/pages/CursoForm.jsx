@@ -94,36 +94,38 @@ export default function CursoForm() {
 
   return (
     <div>
-      <h2>{id ? "Editar Curso" : "Criar Curso"}</h2>
-      {mensagem && <p>{mensagem}</p>}
-
       <div>
-        <label>Nome do Curso:</label>
-        <input
-          value={nomeCurso}
-          onChange={(e) => setNomeCurso(e.target.value)}
-        />
-      </div>
+        <h2>{id ? "Editar Curso" : "Criar Curso"}</h2>
+        {mensagem && <p>{mensagem}</p>}
 
-      <h3>Aulas</h3>
-      {aulas.map((aula, index) => (
-        <div key={index} style={{ marginBottom: "10px" }}>
+        <div>
+          <label>Nome do Curso:</label>
           <input
-            placeholder="Nome da aula"
-            value={aula.nome}
-            onChange={(e) => handleAulaChange(index, "nome", e.target.value)}
+            value={nomeCurso}
+            onChange={(e) => setNomeCurso(e.target.value)}
           />
-          <input
-            placeholder="Link"
-            value={aula.link}
-            onChange={(e) => handleAulaChange(index, "link", e.target.value)}
-          />
-          <button onClick={() => removerAula(index)}>Remover</button>
         </div>
-      ))}
 
-      <button onClick={adicionarAula}>Adicionar Aula</button>
-      <button onClick={salvar}>Salvar</button>
+        <h3>Aulas</h3>
+        {aulas.map((aula, index) => (
+          <div key={index} style={{ marginBottom: "10px" }}>
+            <input
+              placeholder="Nome da aula"
+              value={aula.nome}
+              onChange={(e) => handleAulaChange(index, "nome", e.target.value)}
+            />
+            <input
+              placeholder="Link"
+              value={aula.link}
+              onChange={(e) => handleAulaChange(index, "link", e.target.value)}
+            />
+            <button onClick={() => removerAula(index)}>Remover</button>
+          </div>
+        ))}
+
+        <button onClick={adicionarAula}>Adicionar Aula</button>
+        <button onClick={salvar}>Salvar</button>
+      </div>
       <button onClick={() => navigate("/admin")}>Voltar</button>
     </div>
   );
