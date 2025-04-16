@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { supabase } from "../../supabaseClient";
 import { useNavigate } from "react-router-dom";
+import styles from "./AdminPages.module.css";
 
 export default function QuestaoForm() {
   const navigate = useNavigate();
@@ -53,39 +54,38 @@ export default function QuestaoForm() {
 
   return (
     <div>
-      <h3>Criar Nova Questão</h3>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={styles.form}>
         <input
+          className={styles.input}
           placeholder="Tema"
           value={tema}
           onChange={(e) => setTema(e.target.value)}
           required
-          style={{ display: "block", marginBottom: "0.5rem", width: "100%" }}
         />
         <textarea
+          className={styles.textarea}
           placeholder="Texto da questão"
           value={texto}
           onChange={(e) => setTexto(e.target.value)}
           required
-          style={{ display: "block", marginBottom: "0.5rem", width: "100%" }}
         />
         {["A", "B", "C", "D", "E"].map((letra) => (
-          <input
+          <textarea
             key={letra}
+            className={styles.textarea}
             placeholder={`Alternativa ${letra}`}
             value={alternativas[letra]}
             onChange={(e) => handleChangeAlternativa(letra, e.target.value)}
             required
-            style={{ display: "block", marginBottom: "0.5rem", width: "100%" }}
           />
         ))}
-        <label>
+        <label className={styles.label}>
           Resposta correta:
           <select
+            className={styles.select}
             value={resposta}
             onChange={(e) => setResposta(e.target.value)}
             required
-            style={{ display: "block", marginBottom: "1rem" }}
           >
             {["A", "B", "C", "D", "E"].map((letra) => (
               <option key={letra} value={letra}>
@@ -94,10 +94,20 @@ export default function QuestaoForm() {
             ))}
           </select>
         </label>
-        <button type="submit">Criar Questão</button>
-        <button onClick={() => navigate("/admin")}>Voltar</button>
+        <div className={styles.actions}>
+          <button type="submit" className={styles.button}>
+            Criar Questão
+          </button>
+          <button
+            type="button"
+            onClick={() => navigate("/admin")}
+            className={styles.voltarBtn}
+          >
+            Voltar
+          </button>
+        </div>
       </form>
-      {mensagem && <p>{mensagem}</p>}
+      {mensagem && <p className={styles.mensagem}>{mensagem}</p>}
     </div>
   );
 }

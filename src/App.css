@@ -23,15 +23,20 @@ input {
   padding: 14px;
   margin: 10px 0;
   border-radius: 10px;
-  border: 1px solid #000000;
+  border: 1px solid #888686;
   font-size: 1rem;
   outline: none;
-  box-sizing: content-box;
-  transition: border 0.3s ease;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 8px rgba(41, 46, 43, 0.5); /* Green shadow on focus */
+}
+
+input:focus {
+  border: 1px solid #28a745; /* Green border on focus */
+  box-shadow: 0 0 8px rgba(40, 167, 69, 0.5); /* Green shadow on focus */
 }
 
 .card {
-  background-color: #c9d1c9;
+  background-color: #b3e9b3;
   border: 1px solid #7a7979;
   border-radius: 10px;
   padding: 1rem;

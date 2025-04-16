@@ -2,7 +2,7 @@
 import { supabase } from "../supabaseClient";
 import { useUser } from "../context/UserContext";
 import { useNavigate } from "react-router-dom";
-import styles from "../styles/Navbar.module.css";
+import styles from "./Navbar.module.css";
 
 export default function Navbar() {
   const { user } = useUser();

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { supabase } from "../../supabaseClient";
-import styles from "../../styles/Curso.module.css";
+import styles from "./Curso.module.css";
 
 export default function CursoView() {
   const { id } = useParams();

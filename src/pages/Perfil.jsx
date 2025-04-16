@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../supabaseClient";
-import styles from "../styles/Profile.module.css";
+import styles from "./Profile.module.css";
 
 function calcularIdade(dataNascimento) {
   const nascimento = new Date(dataNascimento);

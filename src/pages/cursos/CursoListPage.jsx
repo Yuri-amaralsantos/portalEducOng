@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../../supabaseClient";
 import { useNavigate } from "react-router-dom";
-import styles from "../../styles/Curso.module.css";
+import styles from "./Curso.module.css";
 
 export default function CursosList() {
   const [cursos, setCursos] = useState([]);

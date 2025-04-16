@@ -1,7 +1,7 @@
 // components/Sidebar.jsx
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../context/UserContext";
-import styles from "../styles/Navbar.module.css";
+import styles from "./Navbar.module.css";
 
 export default function Sidebar() {
   const navigate = useNavigate();
