@@ -23,6 +23,8 @@ export function UserProvider({ children }) {
           .eq("id", user.id)
           .single();
 
+        console.log("Perfil carregado:", perfil);
+
         setIsAdmin(perfil?.cargo === "admin");
       }
 

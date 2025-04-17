@@ -1,0 +1,73 @@
+/* Questoes */
+.card {
+  height: 150px;
+  background-color: #b3e9b3;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cardList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+  width: 250px;
+}
+
+/* Respostas das questões */
+.container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.option {
+  display: block;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.option:hover {
+  background-color: #f0f0f0;
+}
+
+.selected {
+  background-color: #d1e7dd;
+  border-color: #0f5132;
+}
+
+.hiddenRadio {
+  display: none;
+}
+
+.button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+.feedback {
+  margin-top: 1rem;
+  font-weight: bold;
+}

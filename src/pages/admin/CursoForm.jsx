@@ -10,7 +10,7 @@ export default function CursoForm() {
   const [nomeCurso, setNomeCurso] = useState("");
   const [descricao, setDescricao] = useState("");
   const [categoria, setCategoria] = useState("");
-  const [aulas, setAulas] = useState([{ nome: "", link: "" }]);
+  const [aulas, setAulas] = useState([{ link: "" }]);
   const [mensagem, setMensagem] = useState("");
 
   useEffect(() => {
@@ -22,7 +22,11 @@ export default function CursoForm() {
         .select("*")
         .eq("id", id)
         .single();
-      if (error) return console.error("Erro ao carregar curso:", error.message);
+
+      if (error) {
+        console.error("Erro ao carregar curso:", error.message);
+        return;
+      }
 
       setNomeCurso(curso.nome);
       setDescricao(curso.descricao || "");
@@ -33,8 +37,10 @@ export default function CursoForm() {
         .select("*")
         .eq("curso_id", id);
 
-      if (aulasError)
-        return console.error("Erro ao carregar aulas:", aulasError.message);
+      if (aulasError) {
+        console.error("Erro ao carregar aulas:", aulasError.message);
+        return;
+      }
 
       setAulas(aulasData.length ? aulasData : [{ link: "" }]);
     };
@@ -51,9 +57,9 @@ export default function CursoForm() {
     setAulas(novasAulas.length ? novasAulas : [{ link: "" }]);
   };
 
-  const handleAulaChange = (index, field, value) => {
+  const handleAulaChange = (index, value) => {
     const novasAulas = [...aulas];
-    novasAulas[index][field] = value;
+    novasAulas[index].link = value;
     setAulas(novasAulas);
   };
 
@@ -63,9 +69,9 @@ export default function CursoForm() {
       return;
     }
 
-    const camposInvalidos = aulas.some((a) => !a.nome.trim() || !a.link.trim());
+    const camposInvalidos = aulas.some((a) => !a.link || !a.link.trim());
     if (camposInvalidos) {
-      setMensagem("Todos os campos das aulas devem ser preenchidos.");
+      setMensagem("Todos os links das aulas devem ser preenchidos.");
       return;
     }
 
@@ -78,7 +84,10 @@ export default function CursoForm() {
         .select()
         .single();
 
-      if (error) return setMensagem("Erro ao criar curso.");
+      if (error) {
+        setMensagem("Erro ao criar curso.");
+        return;
+      }
       cursoId = curso.id;
     } else {
       await supabase
@@ -88,12 +97,19 @@ export default function CursoForm() {
       await supabase.from("aulas").delete().eq("curso_id", id);
     }
 
-    const aulasComId = aulas.map((a) => ({ ...a, curso_id: cursoId }));
+    const aulasComCursoId = aulas.map((a) => ({
+      link: a.link,
+      curso_id: cursoId,
+    }));
+
     const { error: aulasErro } = await supabase
       .from("aulas")
-      .insert(aulasComId);
+      .insert(aulasComCursoId);
 
-    if (aulasErro) return setMensagem("Erro ao salvar aulas.");
+    if (aulasErro) {
+      setMensagem("Erro ao salvar aulas.");
+      return;
+    }
 
     setMensagem("Curso salvo com sucesso!");
     navigate("/cursos");
@@ -135,12 +151,13 @@ export default function CursoForm() {
           Adicionar Aula
         </button>
       </div>
+
       {aulas.map((aula, index) => (
         <div key={index} className={styles.aula}>
           <input
-            placeholder="Link"
+            placeholder="Link da aula"
             value={aula.link}
-            onChange={(e) => handleAulaChange(index, "link", e.target.value)}
+            onChange={(e) => handleAulaChange(index, e.target.value)}
           />
           <button
             onClick={() => removerAula(index)}

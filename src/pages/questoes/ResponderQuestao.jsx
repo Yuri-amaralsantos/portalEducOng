@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { supabase } from "../../supabaseClient";
+import styles from "./Questao.module.css";
 
 export default function ResponderQuestao() {
   const { id } = useParams();
@@ -36,28 +37,32 @@ export default function ResponderQuestao() {
   const letras = ["A", "B", "C", "D", "E"];
 
   return (
-    <div style={{ maxWidth: "600px", margin: "2rem auto" }}>
+    <div className={styles.container}>
       <h2>{questao.tema}</h2>
       <p>{questao.texto}</p>
       {letras.map((letra) => (
-        <div key={letra} style={{ marginBottom: "0.5rem" }}>
-          <label>
-            <input
-              type="radio"
-              name="resposta"
-              value={letra}
-              checked={respostaSelecionada === letra}
-              onChange={() => setRespostaSelecionada(letra)}
-            />{" "}
-            <strong>{letra})</strong>{" "}
-            {questao[`alternativa_${letra.toLowerCase()}`]}
-          </label>
-        </div>
+        <label
+          key={letra}
+          className={`${styles.option} ${
+            respostaSelecionada === letra ? styles.selected : ""
+          }`}
+        >
+          <input
+            type="radio"
+            name="resposta"
+            value={letra}
+            checked={respostaSelecionada === letra}
+            onChange={() => setRespostaSelecionada(letra)}
+            className={styles.hiddenRadio}
+          />
+          <strong>{letra})</strong>{" "}
+          {questao[`alternativa_${letra.toLowerCase()}`]}
+        </label>
       ))}
-      <button onClick={verificarResposta} style={{ marginTop: "1rem" }}>
+      <button onClick={verificarResposta} className={styles.button}>
         Responder
       </button>
-      {feedback && <p style={{ marginTop: "1rem" }}>{feedback}</p>}
+      {feedback && <p className={styles.feedback}>{feedback}</p>}
     </div>
   );
 }

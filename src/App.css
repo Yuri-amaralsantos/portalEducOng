@@ -37,7 +37,7 @@ input:focus {
 
 .card {
   background-color: #b3e9b3;
-  border: 1px solid #7a7979;
+  border: 1px solid #ccc;
   border-radius: 10px;
   padding: 1rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);

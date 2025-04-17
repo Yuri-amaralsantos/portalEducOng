@@ -5,7 +5,9 @@ import styles from "./Navbar.module.css";
 
 export default function Sidebar() {
   const navigate = useNavigate();
-  const { isAdmin } = useUser();
+  const { isAdmin, loading } = useUser();
+
+  if (loading) return null;
 
   return (
     <aside className={styles.sidebar}>

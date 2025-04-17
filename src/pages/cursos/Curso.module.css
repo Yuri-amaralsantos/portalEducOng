@@ -64,16 +64,6 @@
   gap: 1rem;
 }
 
-.card {
-  background-color: #ffffff;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 1rem;
-  cursor: pointer;
-  text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
 .card:hover {
   transform: translateY(-3px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
