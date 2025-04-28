@@ -49,7 +49,7 @@
 }
 
 .card {
-  background: linear-gradient(90deg, #f5e7b2 0%, #d4af37 100%);
+  background: linear-gradient(to right, #c7a24d 0%, #f5eba8 50%, #c7a24d 100%);
   border-radius: 4px;
   padding: 1rem;
   box-shadow: 0 4px 8px rgba(170, 170, 170, 0.863);
@@ -70,16 +70,19 @@
   transform: scale(1.2);
 }
 
-.remover {
-  background: red;
-  color: rgb(0, 0, 0);
+.editar {
+  background: none;
+  background-color: greenyellow;
   border: none;
   padding: 0.5rem;
   border-radius: 4px;
 }
 
-.remover:hover {
-  background: rgb(184, 66, 66);
+.remover {
+  background: red;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 4px;
 }
 
 /* Lista de questões */

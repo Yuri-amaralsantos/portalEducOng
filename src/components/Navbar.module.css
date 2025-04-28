@@ -8,7 +8,6 @@
 
 .logo {
   text-align: center;
-  font-family: monospace;
   font-weight: bolder;
   cursor: pointer;
   font-size: 28px;
@@ -26,9 +25,22 @@
   margin-left: auto; /* <---- ADD THIS */
 }
 
+.toggleButton {
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+@media (min-width: 900px) {
+  .toggleButton {
+    display: none; /* hide button on desktop */
+  }
+}
+
 /* components/Sidebar.css */
 .sidebar {
-  background: linear-gradient(90deg, #fff2b2 0%, #e0c56e 100%);
+  background: linear-gradient(to right, #c7a24d 0%, #f5eba8 50%, #c7a24d 100%);
   position: fixed;
   top: 0;
   left: 0;
@@ -51,4 +63,46 @@
 
 .sidebar button:hover {
   background: #ebe724;
+}
+
+.sidebarContainer {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+}
+
+.layout {
+  display: flex;
+}
+
+.sidebarWrapper {
+  position: relative;
+  transition: width 0.3s;
+  display: flex;
+  align-items: start;
+}
+
+.sidebarOpen {
+  width: 160px; /* largura cheia */
+}
+
+.sidebarClosed {
+  width: 0px; /* quando escondido */
+}
+
+.toggleButton {
+  position: fixed;
+  top: 5rem;
+  right: -15px;
+  background: #f7f7f4;
+  border: 1px solid #ccc;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.mainContent {
+  flex: 1;
+  padding: 1rem;
+  transition: margin-left 0.3s;
 }

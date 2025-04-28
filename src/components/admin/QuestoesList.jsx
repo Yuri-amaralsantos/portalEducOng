@@ -36,7 +36,7 @@ export default function QuestoesList() {
           </div>
           <div className={styles.actions}>
             <Link to={`/admin/questao/${q.id}`}>
-              <button>Editar</button>
+              <button className={styles.editar}>Editar</button>
             </Link>
             <button
               onClick={() => removerQuestao(q.id)}

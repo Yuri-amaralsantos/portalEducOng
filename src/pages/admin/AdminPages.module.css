@@ -49,6 +49,10 @@ textarea {
   cursor: pointer;
 }
 
+.addBtn:hover {
+  background-color: #165c27;
+}
+
 .aula input {
   flex: 1;
 }
@@ -128,8 +132,9 @@ button {
   margin-bottom: 0.5rem;
 }
 
-.button,
+.btn,
 .voltarBtn {
+  background: none;
   padding: 0.6rem 1.2rem;
   border: none;
   border-radius: 8px;
@@ -138,23 +143,25 @@ button {
   margin-right: 0.5rem;
 }
 
-.button {
+.btn {
   background-color: #28a745;
 }
 
-.button:hover {
-  background-color: #218838;
+.btn:hover {
+  background-color: #186829;
 }
 
 .voltarBtn {
-  background-color: #6c757d;
+  background: none;
+  background-color: #d69171;
 }
 
 .voltarBtn:hover {
-  background-color: #495057;
+  background-color: #a76714;
 }
 
 .actions {
+  background: none;
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;

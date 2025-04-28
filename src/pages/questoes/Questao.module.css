@@ -1,14 +1,13 @@
 /* Questoes */
 
 .cardQuestao {
-  background: linear-gradient(90deg, #f5e7b2 0%, #d4af37 100%);
+  background: linear-gradient(to right, #c7a24d 0%, #f5eba8 50%, #c7a24d 100%);
   border-radius: 4px;
   padding: 1rem;
   box-shadow: 0 4px 8px rgba(170, 170, 170, 0.863);
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  width: 600px;
-  height: 100px;
+  width: 80%;
   margin-bottom: 1rem;
 }
 

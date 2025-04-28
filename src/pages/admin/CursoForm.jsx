@@ -188,7 +188,9 @@ export default function CursoForm() {
       ))}
 
       <div className={styles.actions}>
-        <button onClick={salvar}>Salvar</button>
+        <button onClick={salvar} className={styles.btn}>
+          Salvar
+        </button>
         <button onClick={() => navigate("/admin")} className={styles.voltarBtn}>
           Voltar
         </button>

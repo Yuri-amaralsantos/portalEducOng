@@ -4,7 +4,7 @@ import { useUser } from "../context/UserContext";
 import { useNavigate } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
-export default function Navbar() {
+export default function Navbar({ onToggleSidebar }) {
   const { user } = useUser();
   const navigate = useNavigate();
 

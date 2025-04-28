@@ -168,7 +168,7 @@ export default function QuestaoForm() {
 
         {/* Ações do formulário */}
         <div className={styles.actions}>
-          <button type="submit" className={styles.button}>
+          <button type="submit" className={styles.btn}>
             {id ? "Salvar Questão" : "Criar Questão"}
           </button>
           <button

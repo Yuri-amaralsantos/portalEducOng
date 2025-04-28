@@ -38,7 +38,7 @@ export default function CursoList() {
           </div>
           <div className={styles.actions}>
             <Link to={`/admin/curso/${curso.id}`}>
-              <button>Editar</button>
+              <button className={styles.editar}>Editar</button>
             </Link>
             <button
               onClick={() => removerCurso(curso.id)}
