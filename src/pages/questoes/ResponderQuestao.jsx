@@ -37,7 +37,7 @@ export default function ResponderQuestao() {
   const letras = ["A", "B", "C", "D", "E"];
 
   return (
-    <div className={styles.container}>
+    <div className="container">
       <h2>{questao.tema}</h2>
       <p>{questao.texto}</p>
       {letras.map((letra) => (
