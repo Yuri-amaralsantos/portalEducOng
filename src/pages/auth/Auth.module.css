@@ -46,8 +46,6 @@
   display: block;
   width: 100%; /* Botão ocupa 100% da largura do formulário */
   padding: 14px;
-  background-color: #3498db;
-  color: white;
   border: none;
   border-radius: 10px;
   font-size: 1.1rem;

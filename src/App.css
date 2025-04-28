@@ -1,20 +1,26 @@
 body {
   margin: 0;
+  background-color: #dfe2e1;
 }
 
 button {
   margin-top: 1rem;
   margin-right: 0.5rem;
   padding: 0.5rem 1rem;
-  background: #007aff;
-  color: white;
+  background: linear-gradient(90deg, #f5e7b2 0%, #d4af37 100%);
+  color: black;
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  font-weight: bold;
+  background: linear-gradient(90deg, #fff2b2 0%, #e0c56e 100%);
+  box-shadow: 0 4px 8px rgba(170, 170, 170, 0.863);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 button:hover {
-  background: #005ecb;
+  background: linear-gradient(90deg, #fff2b2 0%, #e0c56e 100%);
+  box-shadow: 0 6px 12px rgba(212, 175, 55, 0.7);
 }
 
 input {
@@ -27,20 +33,53 @@ input {
   font-size: 1rem;
   outline: none;
   transition: border 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 0 8px rgba(41, 46, 43, 0.5); /* Green shadow on focus */
+  box-shadow: 0 4px 8px rgba(170, 170, 170, 0.863);
 }
 
 input:focus {
-  border: 1px solid #28a745; /* Green border on focus */
-  box-shadow: 0 0 8px rgba(40, 167, 69, 0.5); /* Green shadow on focus */
+  border: 1px solid #28a745;
+  box-shadow: 0 0 8px rgba(40, 167, 69, 0.5);
 }
 
 .card {
-  background-color: #b3e9b3;
-  border: 1px solid #ccc;
-  border-radius: 10px;
+  background: linear-gradient(90deg, #f5e7b2 0%, #d4af37 100%);
+  border-radius: 4px;
   padding: 1rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 8px rgba(170, 170, 170, 0.863);
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px rgba(223, 191, 8, 0.493);
+}
+
+.container {
+  margin: 2rem auto;
+  padding: 2rem;
+  max-width: 800px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+select {
+  width: 20%;
+  padding: 12px 12px;
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+  appearance: none; /* Remove o estilo padrão do select */
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(170, 170, 170, 0.863);
+}
+
+/* Foco no select */
+select:focus {
+  border-color: #0056b3;
 }

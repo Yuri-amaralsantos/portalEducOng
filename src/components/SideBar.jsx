@@ -11,6 +11,9 @@ export default function Sidebar() {
 
   return (
     <aside className={styles.sidebar}>
+      <div className={styles.logo} onClick={() => navigate("/home")}>
+        Instituto Abrams
+      </div>
       <button onClick={() => navigate("/home")}>Início</button>
       <button onClick={() => navigate("/perfil")}>Perfil</button>
       <button onClick={() => navigate("/cursos")}>Cursos</button>

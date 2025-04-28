@@ -1,34 +1,71 @@
 .perfilContainer {
-  max-width: 100%;
-  margin: 2rem 0;
-  background: #fff;
-  border-radius: 10px;
-  overflow: hidden;
-  font-family: sans-serif;
+  margin: 2rem auto;
+  padding: 2rem;
+  max-width: 800px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .perfilInfo {
-  padding: 1.5rem;
-  border-top: 4px solid #fff;
+  padding: 2rem;
   background-color: #f9f9f9;
+  border-radius: 10px;
 }
 
 .perfilInfo h2 {
   text-align: start;
-  margin: 0;
-  font-size: 1.8rem;
+  margin: 0 0 1rem 0;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
 }
 
 .perfilInfo p {
   margin: 0.5rem 0;
   color: #555;
+  font-size: 1rem;
+}
+
+.perfilEdicao label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #555;
 }
 
 .perfilEdicao input {
-  width: 300px;
+  width: 100%;
+  padding: 1re, m;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.perfilEdicao button {
+  margin-right: 1rem;
+  color: rgb(0, 0, 0);
+}
+
+.perfilEdicao button:first-of-type {
+  background: none;
+  background-color: #28a745; /* Verde - Salvar */
+  color: rgb(0, 0, 0);
+}
+
+.perfilEdicao button:last-of-type {
+  background: none;
+  background-color: #fd7e14; /* Laranja - Cancelar */
+  color: rgb(0, 0, 0);
 }
 
 .mensagem {
+  margin-top: 1rem;
   padding: 1rem;
-  color: green;
+  background-color: #d4edda;
+  color: #155724;
+  border-radius: 8px;
+  font-size: 1rem;
 }

@@ -56,7 +56,7 @@ export default function AulaView() {
   };
 
   return (
-    <div className={styles.container}>
+    <div className="container">
       {aula ? (
         <>
           <h2 className={styles.titulo}>Aula {indice}</h2>

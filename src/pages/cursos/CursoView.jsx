@@ -32,10 +32,11 @@ export default function CursoView() {
   }, [id]);
 
   return (
-    <div className={styles.container}>
+    <div className="container">
       {curso && (
         <div className={styles.cursoInfo}>
           <h2>{curso.nome}</h2>
+          <hr></hr>
           <p>
             <strong>Categoria:</strong>{" "}
             {curso.categoria || "Sem categoria definida."}
@@ -44,7 +45,7 @@ export default function CursoView() {
         </div>
       )}
 
-      <h3 className={styles.tituloAulas}>Aulas</h3>
+      <h3 className={styles.tituloAulas}>AULAS</h3>
       <div className={styles.grid}>
         {aulas.map((aula, index) => (
           <div
@@ -52,7 +53,7 @@ export default function CursoView() {
             className="card"
             onClick={() => navigate(`/aula/${aula.id}`)}
           >
-            <h4>Aula {index + 1}</h4>
+            <h4>AULA {index + 1}</h4>
           </div>
         ))}
       </div>

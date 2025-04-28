@@ -1,12 +1,4 @@
 /* Cursos */
-.container {
-  max-width: 700px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
 
 h2 {
   margin-bottom: 1rem;
@@ -48,6 +40,7 @@ textarea {
 }
 
 .addBtn {
+  background: none;
   background-color: #28a745;
   margin: 0;
   color: white;
@@ -79,6 +72,7 @@ button {
 }
 
 .removerBtn {
+  background: none;
   margin: auto 0;
   background-color: rgb(236, 17, 17);
   color: white;
@@ -146,7 +140,6 @@ button {
 
 .button {
   background-color: #28a745;
-  color: white;
 }
 
 .button:hover {
@@ -155,7 +148,6 @@ button {
 
 .voltarBtn {
   background-color: #6c757d;
-  color: white;
 }
 
 .voltarBtn:hover {

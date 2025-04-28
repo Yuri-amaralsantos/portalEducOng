@@ -13,6 +13,17 @@ export default function CursoForm() {
   const [aulas, setAulas] = useState([{ link: "" }]);
   const [mensagem, setMensagem] = useState("");
 
+  // Lista de matérias escolares
+  const categories = [
+    "Matemática",
+    "Português",
+    "Ciências",
+    "História",
+    "Geografia",
+    "Inglês",
+    // Adicione mais matérias conforme necessário
+  ];
+
   useEffect(() => {
     if (!id) return;
 
@@ -116,7 +127,7 @@ export default function CursoForm() {
   };
 
   return (
-    <div className={styles.container}>
+    <div className="container">
       <h2>{id ? "Editar Curso" : "Criar Curso"}</h2>
       {mensagem && <p className={styles.mensagem}>{mensagem}</p>}
 
@@ -137,12 +148,20 @@ export default function CursoForm() {
         />
       </div>
 
+      {/* Seleção de categoria */}
       <div className={styles.formGroup}>
         <label>Categoria:</label>
-        <input
+        <select
           value={categoria}
           onChange={(e) => setCategoria(e.target.value)}
-        />
+        >
+          <option value="">Selecione a categoria</option>
+          {categories.map((category) => (
+            <option key={category} value={category}>
+              {category}
+            </option>
+          ))}
+        </select>
       </div>
 
       <div className={styles.header}>

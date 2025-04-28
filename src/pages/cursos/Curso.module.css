@@ -8,14 +8,13 @@
   padding: 0.5rem;
   width: 100%;
   margin-bottom: 1rem;
-  border-radius: 12px;
-  box-shadow: 0 0 0 1px #ccc;
-  border: 1px solid #7a7a7a;
+  box-shadow: 0 4px 8px rgba(170, 170, 170, 0.863);
   font-size: 16px;
   box-sizing: border-box;
 }
 
 .grid {
+  margin-top: 3rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
@@ -39,23 +38,23 @@
 }
 
 /* Pagina do curso */
-.cursoInfo {
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
 
 .cursoInfo h2 {
+  font-size: 30px;
+  text-align: start;
   margin-bottom: 0.5rem;
 }
 
 .cursoInfo p {
+  text-align: start;
   margin: 0.5rem 0;
   color: #444;
 }
 
 .tituloAulas {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  font-size: 30px;
 }
 
 .grid {
@@ -137,8 +136,6 @@
 
 .botao {
   padding: 10px 20px;
-  background-color: #4caf50;
-  color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -147,6 +144,7 @@
 }
 
 .botao:disabled {
+  background: none;
   background-color: #ccc;
   cursor: not-allowed;
 }

@@ -20,11 +20,9 @@ export default function Home() {
   }, []);
 
   return (
-    <div>
-      <div style={{ padding: "1rem" }}>
-        <h2>Página Inicial</h2>
-        {user && <p>Bem-vindo, {user.email}!</p>}
-      </div>
+    <div className="container">
+      <h2>Página Inicial</h2>
+      {user && <p>Bem-vindo, {user.email}!</p>}
     </div>
   );
 }

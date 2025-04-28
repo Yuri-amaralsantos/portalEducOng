@@ -95,7 +95,7 @@ export default function Perfil() {
   };
 
   return (
-    <div className={styles.perfilContainer}>
+    <div className="container">
       <div className={styles.perfilCpa}></div>
 
       <div className={styles.perfilInfo}>

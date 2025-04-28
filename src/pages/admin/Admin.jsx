@@ -10,7 +10,7 @@ export default function Administracao() {
   ];
 
   return (
-    <div style={{ padding: "1rem" }}>
+    <div className="container">
       <h2>Administração</h2>
 
       <Tabs tabs={tabs} />

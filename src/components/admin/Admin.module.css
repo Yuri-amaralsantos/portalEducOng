@@ -6,17 +6,22 @@
 }
 
 .tabButton {
+  background: none;
   background-color: #f0f0f0;
-  color: #000;
+  color: #677e5a;
 }
 
 .tabButton:hover {
-  background-color: #e0e0e0;
+  background: none;
+  background-color: #706f6f;
+  box-shadow: none;
+  color: white;
 }
 
 .active {
-  background-color: #007bff;
-  color: white;
+  background: none;
+  background-color: #706f6f;
+  color: rgb(247, 247, 247);
 }
 
 /* Lista de cursos */
@@ -29,22 +34,31 @@
 }
 
 .newButton {
+  margin-top: 2rem;
   padding: 0.5rem 1rem;
-  background-color: #007bff;
-  color: white;
+  background-color: #ebbb0f;
+  color: black;
   text-decoration: none;
   border-radius: 4px;
 }
 
+.newButton:hover {
+  background-color: #d6c210;
+  box-shadow: 0 6px 12px rgba(212, 175, 55, 0.7);
+  transform: scale(1.2);
+}
+
 .card {
+  background: linear-gradient(90deg, #f5e7b2 0%, #d4af37 100%);
+  border-radius: 4px;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(170, 170, 170, 0.863);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid #ccc;
-  padding: 1rem;
   margin-bottom: 1rem;
-  border-radius: 8px;
-  background-color: #b3e9b3;
   width: 90%;
 }
 
@@ -52,12 +66,20 @@
   margin-left: 0.5rem;
 }
 
+.actions button:hover {
+  transform: scale(1.2);
+}
+
 .remover {
-  background-color: #f44336;
-  color: white;
+  background: red;
+  color: rgb(0, 0, 0);
   border: none;
   padding: 0.5rem;
   border-radius: 4px;
+}
+
+.remover:hover {
+  background: rgb(184, 66, 66);
 }
 
 /* Lista de questões */

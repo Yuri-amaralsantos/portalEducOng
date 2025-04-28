@@ -15,11 +15,7 @@ export default function Navbar() {
 
   return (
     <nav className={styles.navbarTop}>
-      <div className={styles.logo} onClick={() => navigate("/home")}>
-        InstitutoAbrams
-      </div>
       <div className={styles.navbarActions}>
-        {user && <span>{user.email}</span>}
         <button onClick={handleLogout}>Logout</button>
       </div>
     </nav>
