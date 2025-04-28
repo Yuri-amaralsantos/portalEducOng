@@ -24,10 +24,14 @@ export default function Register() {
 
     const userId = signUpData?.user?.id;
     if (userId && nome && dataNascimento) {
+      // Converter de "DD/MM/YYYY" para "YYYY-MM-DD"
+      const [day, month, year] = dataNascimento.split("/");
+      const formattedDate = `${year}-${month}-${day}`;
+
       const { error: perfilError } = await supabase.from("perfis").insert({
         id: userId,
         nome,
-        data_nascimento: dataNascimento,
+        data_nascimento: formattedDate,
         cargo: "cliente",
       });
 
@@ -65,6 +69,12 @@ export default function Register() {
             let day = value.slice(0, 2);
             let month = value.slice(2, 4);
             let year = value.slice(4, 8);
+
+            // Limita o dia para no máximo 31
+            if (parseInt(day) > 31) day = "31";
+
+            // Limita o mês para no máximo 12
+            if (parseInt(month) > 12) month = "12";
 
             let finalValue = day;
             if (month) finalValue += "/" + month;
