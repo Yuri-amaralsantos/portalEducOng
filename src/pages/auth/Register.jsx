@@ -66,12 +66,6 @@ export default function Register() {
             let month = value.slice(2, 4);
             let year = value.slice(4, 8);
 
-            // Limita o dia para no máximo 31
-            if (parseInt(day) > 31) day = "31";
-
-            // Limita o mês para no máximo 12
-            if (parseInt(month) > 12) month = "12";
-
             let finalValue = day;
             if (month) finalValue += "/" + month;
             if (year) finalValue += "/" + year;
