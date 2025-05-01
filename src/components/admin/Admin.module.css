@@ -85,4 +85,9 @@
   border-radius: 4px;
 }
 
-/* Lista de questões */
+.selectCargo {
+  padding: 6px;
+  margin-top: 4px;
+  border-radius: 6px;
+  font-size: 1rem;
+}

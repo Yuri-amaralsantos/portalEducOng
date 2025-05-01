@@ -25,7 +25,7 @@ export function UserProvider({ children }) {
 
         console.log("Perfil carregado:", perfil);
 
-        setIsAdmin(perfil?.cargo === "admin");
+        setIsAdmin(perfil?.cargo === "admin" || "moderador");
       }
 
       setLoading(false);
