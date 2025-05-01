@@ -91,3 +91,7 @@
   border-radius: 6px;
   font-size: 1rem;
 }
+.textoAdmin {
+  font-style: italic;
+  color: gray;
+}

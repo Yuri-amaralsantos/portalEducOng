@@ -16,8 +16,9 @@ export default function UsuariosList() {
         return;
       }
 
-      setUsuarios(data); // ← aqui estava o erro
+      setUsuarios(data);
     };
+
     fetchUsuarios();
   }, []);
 
@@ -49,16 +50,20 @@ export default function UsuariosList() {
               <h4>{usuario.nome}</h4>
               <p>Cargo: {usuario.cargo}</p>
             </div>
-            <select
-              value={usuario.cargo}
-              onChange={(e) => alterarCargo(usuario.id, e.target.value)}
-              className={styles.selectCargo}
-            >
-              <option value="cliente">Cliente</option>
-              <option value="admin">Admin</option>
-              <option value="moderador">Moderador</option>
-              <option value="cancelado">Cancelado</option>
-            </select>
+
+            {usuario.cargo !== "admin" ? (
+              <select
+                value={usuario.cargo}
+                onChange={(e) => alterarCargo(usuario.id, e.target.value)}
+                className={styles.selectCargo}
+              >
+                <option value="cliente">Cliente</option>
+                <option value="moderador">Moderador</option>
+                <option value="cancelado">Cancelado</option>
+              </select>
+            ) : (
+              <p className={styles.textoAdmin}>Administrador</p>
+            )}
           </div>
         ))}
       </div>
