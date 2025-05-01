@@ -16,6 +16,9 @@ function calcularIdade(dataNascimento) {
 export default function Perfil() {
   const [perfil, setPerfil] = useState(null);
   const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [novaSenha, setNovaSenha] = useState("");
+  const [confirmarSenha, setConfirmarSenha] = useState("");
   const [dataNascimento, setDataNascimento] = useState(null);
   const [mensagem, setMensagem] = useState("");
   const [modoEdicao, setModoEdicao] = useState(false);
@@ -24,6 +27,7 @@ export default function Perfil() {
     const getPerfil = async () => {
       const { data: userData } = await supabase.auth.getUser();
       const userId = userData?.user?.id;
+      setEmail(userData?.user?.email);
 
       if (!userId) return;
 
@@ -51,31 +55,71 @@ export default function Perfil() {
   }, []);
 
   const handleSalvar = async () => {
-    const { data: userData } = await supabase.auth.getUser();
-    const userId = userData?.user?.id;
-    if (!userId || !dataNascimento) return;
+    const { data: userData, error: userError } = await supabase.auth.getUser();
+    const user = userData?.user;
+    const userId = user?.id;
 
-    const [dia, mes, ano] = dataNascimento.split("/");
-    const isoDate = `${ano}-${mes.padStart(2, "0")}-${dia.padStart(2, "0")}`;
+    if (!userId) {
+      setMensagem("Usuário inválido.");
+      return;
+    }
 
-    const perfilData = {
-      id: userId,
-      nome,
-      data_nascimento: isoDate,
-    };
+    if (novaSenha && novaSenha !== confirmarSenha) {
+      setMensagem("As senhas não coincidem.");
+      return;
+    }
 
-    const { error } = await supabase
-      .from("perfis")
-      .update(perfilData)
-      .eq("id", userId);
+    // Constrói dados a serem atualizados no perfil
+    const updatesPerfil = {};
+    if (nome && nome !== perfil?.nome) updatesPerfil.nome = nome;
+    if (dataNascimento) {
+      const [dia, mes, ano] = dataNascimento.split("/");
+      if (dia && mes && ano) {
+        const isoDate = `${ano}-${mes.padStart(2, "0")}-${dia.padStart(
+          2,
+          "0"
+        )}`;
+        if (isoDate !== perfil?.data_nascimento) {
+          updatesPerfil.data_nascimento = isoDate;
+        }
+      }
+    }
 
-    if (error) {
-      console.error("Erro ao salvar perfil:", error.message);
+    // Atualiza o perfil apenas se houver mudanças
+    let perfilError = null;
+    if (Object.keys(updatesPerfil).length > 0) {
+      const { error } = await supabase
+        .from("perfis")
+        .update(updatesPerfil)
+        .eq("id", userId);
+      perfilError = error;
+    }
+
+    // Prepara alterações de autenticação
+    const updatesAuth = {};
+    if (email && email !== user.email) updatesAuth.email = email;
+    if (novaSenha) updatesAuth.password = novaSenha;
+
+    let authError = null;
+    if (Object.keys(updatesAuth).length > 0) {
+      const { error } = await supabase.auth.updateUser(updatesAuth);
+      authError = error;
+    }
+
+    if (perfilError || authError) {
+      console.error("Erro ao salvar perfil:", perfilError || authError);
       setMensagem("Erro ao salvar perfil.");
     } else {
-      setPerfil({ ...perfilData });
       setMensagem("Perfil atualizado com sucesso!");
       setModoEdicao(false);
+      setNovaSenha("");
+      setConfirmarSenha("");
+
+      // Atualiza localmente somente os campos alterados
+      setPerfil((prev) => ({
+        ...prev,
+        ...updatesPerfil,
+      }));
     }
   };
 
@@ -109,6 +153,13 @@ export default function Perfil() {
                 onChange={(e) => setNome(e.target.value)}
               />
             </div>
+            <label>Email:</label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+
             <label>Data de Nascimento:</label>
             <input
               type="text"
@@ -133,6 +184,22 @@ export default function Perfil() {
               placeholder="DD/MM/AAAA"
               maxLength={10}
             />
+            <div>
+              <label>Nova senha:</label>
+              <input
+                type="password"
+                value={novaSenha}
+                onChange={(e) => setNovaSenha(e.target.value)}
+              />
+            </div>
+            <div>
+              <label>Confirmar senha:</label>
+              <input
+                type="password"
+                value={confirmarSenha}
+                onChange={(e) => setConfirmarSenha(e.target.value)}
+              />
+            </div>
             <button onClick={handleSalvar}>Atualizar perfil</button>
             <button onClick={handleCancelar}>Cancelar</button>
           </div>

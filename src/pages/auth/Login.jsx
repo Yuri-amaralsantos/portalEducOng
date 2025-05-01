@@ -7,6 +7,9 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const [showResetBox, setShowResetBox] = useState(false);
+  const [resetEmail, setResetEmail] = useState("");
+  const [resetMessage, setResetMessage] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -20,6 +23,16 @@ export default function Login() {
       setMessage(error.message);
     } else {
       navigate("/home");
+    }
+  };
+
+  const handlePasswordReset = async (e) => {
+    e.preventDefault();
+    const { error } = await supabase.auth.resetPasswordForEmail(resetEmail);
+    if (error) {
+      setResetMessage(error.message);
+    } else {
+      setResetMessage("Email de recuperação enviado.");
     }
   };
 
@@ -50,7 +63,44 @@ export default function Login() {
         <p className={styles.link}>
           Não tem conta? <a href="/register">Registrar</a>
         </p>
+        <p className={styles.link}>
+          <button
+            type="button"
+            onClick={() => setShowResetBox(true)}
+            className={styles.buttonLink}
+          >
+            Esqueceu a senha?
+          </button>
+        </p>
       </form>
+      {showResetBox && (
+        <div className={styles.modalOverlay}>
+          <div className={styles.modalBox}>
+            <h2>Recuperar Senha</h2>
+            <form onSubmit={handlePasswordReset}>
+              <input
+                type="email"
+                placeholder="Digite seu email"
+                value={resetEmail}
+                onChange={(e) => setResetEmail(e.target.value)}
+                required
+                className={styles.input}
+              />
+              <button type="submit" className={styles.button}>
+                Enviar
+              </button>
+              <button
+                type="button"
+                onClick={() => setShowResetBox(false)}
+                className={styles.buttonSecondary}
+              >
+                Cancelar
+              </button>
+              {resetMessage && <p>{resetMessage}</p>}
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

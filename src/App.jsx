@@ -14,6 +14,8 @@ import ResponderQuestao from "./pages/questoes/ResponderQuestao";
 import QuestaoForm from "./pages/admin/QuestaoForm";
 import CursoForm from "./pages/admin/CursoForm";
 import Admin from "./pages/admin/Admin";
+import Sobre from "./pages/sobre/Sobre";
+import Privacidade from "./pages/sobre/Privacidade";
 import "./App.css";
 
 function App() {
@@ -26,6 +28,8 @@ function App() {
       {/* Layout protegido com Navbar */}
       <Route element={<ProtectedLayout />}>
         <Route path="/home" element={<Home />} />
+        <Route path="/privacidade" element={<Privacidade />} />
+        <Route path="/sobre" element={<Sobre />} />
         <Route path="/perfil" element={<Perfil />} />
         <Route path="/cursos" element={<CursosList />} />
         <Route path="/curso/:id" element={<CursoView />} />
