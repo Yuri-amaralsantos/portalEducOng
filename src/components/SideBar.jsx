@@ -12,7 +12,7 @@ export default function Sidebar({ visible }) {
       style={{ display: visible ? "flex" : "none" }}
     >
       <div className={styles.logo} onClick={() => navigate("/home")}>
-        Instituto Abrams
+        Instituto ABRAMS
       </div>
       {!loading && (
         <>
