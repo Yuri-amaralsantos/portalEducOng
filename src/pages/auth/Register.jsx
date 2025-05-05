@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { supabase } from "../../supabaseClient";
 import { useNavigate } from "react-router-dom";
 import styles from "./Auth.module.css";
@@ -10,6 +10,13 @@ export default function Register() {
   const [dataNascimento, setDataNascimento] = useState(null);
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
+
+  // Redireciona se já estiver logado
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (session) navigate("/home");
+    });
+  }, []);
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -24,7 +31,6 @@ export default function Register() {
 
     const userId = signUpData?.user?.id;
     if (userId && nome && dataNascimento) {
-      // Converter de "DD/MM/YYYY" para "YYYY-MM-DD"
       const [day, month, year] = dataNascimento.split("/");
       const formattedDate = `${year}-${month}-${day}`;
 
@@ -42,7 +48,7 @@ export default function Register() {
     }
 
     setMessage("Cadastro realizado! Verifique seu email.");
-    navigate("/");
+    navigate("/home");
   };
 
   return (
@@ -64,22 +70,15 @@ export default function Register() {
           className={styles.input}
           value={dataNascimento || ""}
           onChange={(e) => {
-            let value = e.target.value.replace(/\D/g, ""); // Remove tudo que não for número
-
+            let value = e.target.value.replace(/\D/g, "");
             let day = value.slice(0, 2);
             let month = value.slice(2, 4);
             let year = value.slice(4, 8);
-
-            // Limita o dia para no máximo 31
             if (parseInt(day) > 31) day = "31";
-
-            // Limita o mês para no máximo 12
             if (parseInt(month) > 12) month = "12";
-
             let finalValue = day;
             if (month) finalValue += "/" + month;
             if (year) finalValue += "/" + year;
-
             setDataNascimento(finalValue);
           }}
           placeholder="Dia/Mês/Ano"

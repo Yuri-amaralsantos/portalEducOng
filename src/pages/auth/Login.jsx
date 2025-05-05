@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { supabase } from "../../supabaseClient";
 import { useNavigate } from "react-router-dom";
 import styles from "./Auth.module.css";
@@ -12,13 +12,19 @@ export default function Login() {
   const [resetMessage, setResetMessage] = useState("");
   const navigate = useNavigate();
 
+  // Redireciona se já estiver logado
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (session) navigate("/home");
+    });
+  }, []);
+
   const handleLogin = async (e) => {
     e.preventDefault();
     const { error } = await supabase.auth.signInWithPassword({
       email,
       password,
     });
-
     if (error) {
       setMessage(error.message);
     } else {
