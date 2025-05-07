@@ -20,6 +20,7 @@ export default function Sidebar({ visible }) {
           <button onClick={() => navigate("/perfil")}>Perfil</button>
           <button onClick={() => navigate("/cursos")}>Cursos</button>
           <button onClick={() => navigate("/questoes")}>Questões</button>
+          <button onClick={() => navigate("/jogos")}>Jogos</button>
           <button onClick={() => navigate("/sobre")}>Sobre</button>
           {isAdmin && (
             <button onClick={() => navigate("/admin")}>Administração</button>
