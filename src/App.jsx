@@ -15,7 +15,8 @@ import QuestaoForm from "./pages/admin/QuestaoForm";
 import CursoForm from "./pages/admin/CursoForm";
 import Admin from "./pages/admin/Admin";
 import Sobre from "./pages/sobre/Sobre";
-import Jogos from "./pages/jogos/Jogos";
+import Jogo from "./pages/jogos/jogo";
+import JogosList from "./pages/jogos/listaJogos";
 import Privacidade from "./pages/sobre/Privacidade";
 import "./App.css";
 
@@ -36,7 +37,8 @@ function App() {
         <Route path="/curso/:id" element={<CursoView />} />
         <Route path="/aula/:id" element={<AulaView />} />
         <Route path="/questoes/" element={<QuestoesList />} />
-        <Route path="/jogos" element={<Jogos />} />
+        <Route path="/jogos" element={<JogosList />} />
+        <Route path="/jogos/:id" element={<Jogo />} />
         <Route path="/questao/:id" element={<ResponderQuestao />} />
         <Route
           path="/admin"
