@@ -40,6 +40,7 @@ function App() {
         <Route path="/jogos" element={<JogosList />} />
         <Route path="/jogos/:id" element={<Jogo />} />
         <Route path="/questao/:id" element={<ResponderQuestao />} />
+        <Route path="/questao/:nova" element={<ResponderQuestao />} />
         <Route
           path="/admin"
           element={

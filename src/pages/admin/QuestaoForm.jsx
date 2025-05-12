@@ -5,7 +5,8 @@ import styles from "./AdminPages.module.css";
 
 export default function QuestaoForm() {
   const navigate = useNavigate();
-  const { id } = useParams(); // Para pegar o ID da questão
+  const { id } = useParams();
+  const isNovo = id === "nova";
   const [tema, setTema] = useState("");
   const [texto, setTexto] = useState("");
   const [alternativas, setAlternativas] = useState({
@@ -45,7 +46,7 @@ export default function QuestaoForm() {
     };
 
     fetchQuestao();
-  }, [id]);
+  }, [id, isNovo]);
 
   const handleChangeAlternativa = (letra, value) => {
     setAlternativas((prev) => ({
@@ -57,8 +58,20 @@ export default function QuestaoForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const { error } = id
-      ? await supabase
+    const { error } = isNovo
+      ? await supabase.from("questoes").insert([
+          {
+            tema,
+            texto,
+            alternativa_a: alternativas.A,
+            alternativa_b: alternativas.B,
+            alternativa_c: alternativas.C,
+            alternativa_d: alternativas.D,
+            alternativa_e: alternativas.E,
+            resposta,
+          },
+        ])
+      : await supabase
           .from("questoes")
           .update({
             tema,
@@ -70,19 +83,7 @@ export default function QuestaoForm() {
             alternativa_e: alternativas.E,
             resposta,
           })
-          .eq("id", id)
-      : await supabase.from("questoes").insert([
-          {
-            tema,
-            texto,
-            alternativa_a: alternativas.A,
-            alternativa_b: alternativas.B,
-            alternativa_c: alternativas.C,
-            alternativa_d: alternativas.D,
-            alternativa_e: alternativas.E,
-            resposta,
-          },
-        ]);
+          .eq("id", id);
 
     if (error) {
       console.error(error);
