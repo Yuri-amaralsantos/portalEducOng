@@ -27,7 +27,7 @@ export default function ProtectedLayout() {
 
   return (
     <>
-      <Navbar />
+      <Navbar onToggleSidebar={() => setSidebarVisible(!sidebarVisible)} />
       <div className={styles.layout}>
         <div
           className={`${styles.sidebarWrapper} ${
@@ -35,12 +35,6 @@ export default function ProtectedLayout() {
           }`}
         >
           <Sidebar visible={sidebarVisible} />
-          <button
-            className={styles.toggleButton}
-            onClick={() => setSidebarVisible(!sidebarVisible)}
-          >
-            ☰
-          </button>
         </div>
         <main className={styles.mainContent}>
           <Outlet />

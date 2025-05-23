@@ -22,7 +22,6 @@ export default function Jogo() {
         src={jogo.embedUrl}
         width="800"
         height="600"
-        frameBorder="0"
         allowFullScreen
         title={jogo.nome}
       ></iframe>
