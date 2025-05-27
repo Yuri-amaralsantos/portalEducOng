@@ -15,4 +15,12 @@ export const jogos = [
         imagem: "https://img.itch.zone/aW1nLzIxMzIzMjAwLnBuZw==/315x250%23c/s86IH7.png",
         embedUrl: "https://itch.io/embed-upload/13822279?color=333333",
     },
+
+    {
+        id: "jogo de dama",
+        nome: "Jogo de damas clássico",
+        descricao: "Um jogo clássico de tabuleiro onde os jogadores capturam as peças na diagonal e quem capturas todas peças do adversário ganha",
+        imagem: "https://img.itch.zone/aW1nLzIxNDA3OTYzLnBuZw==/315x250%23c/Zs9p1N.png",
+        embedUrl: "https://itch.io/embed-upload/13828327?color=333333",
+    },
 ];
