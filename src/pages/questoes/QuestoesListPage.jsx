@@ -49,6 +49,7 @@ export default function QuestoesList() {
         <input
           type="text"
           id="searchInput"
+          className={styles.pesquisa}
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Digite para buscar..."
@@ -56,7 +57,7 @@ export default function QuestoesList() {
       </div>
 
       {/* Dropdown para seleção do tema */}
-      <div>
+      <div className={styles.filtroDiv}>
         <label htmlFor="temaFilter">Filtrar por tema:</label>
         <select
           id="temaFilter"

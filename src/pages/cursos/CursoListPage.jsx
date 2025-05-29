@@ -51,7 +51,7 @@ export default function CursosList() {
       />
 
       {/* Filtro por categoria */}
-      <div>
+      <div className={styles.filtroDiv}>
         <label htmlFor="categoriaFiltro">Filtrar por categoria:</label>
         <select
           id="categoriaFiltro"
@@ -76,9 +76,8 @@ export default function CursosList() {
             onClick={() => navigate(`/curso/${curso.id}`)}
           >
             <h3>{curso.nome}</h3>
-            <strong>
-              <p>{curso.categoria || "Sem categoria definida"}</p>
-            </strong>
+
+            <p>{curso.categoria || "Sem categoria definida"}</p>
           </div>
         ))}
       </div>

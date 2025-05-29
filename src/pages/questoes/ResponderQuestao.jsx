@@ -40,25 +40,22 @@ export default function ResponderQuestao() {
     <div className="container">
       <h2>{questao.tema}</h2>
       <p>{questao.texto}</p>
-      {letras.map((letra) => (
-        <label
-          key={letra}
-          className={`${styles.option} ${
-            respostaSelecionada === letra ? styles.selected : ""
-          }`}
-        >
-          <input
-            type="radio"
-            name="resposta"
-            value={letra}
-            checked={respostaSelecionada === letra}
-            onChange={() => setRespostaSelecionada(letra)}
-            className={styles.hiddenRadio}
-          />
-          <strong>{letra})</strong>{" "}
-          {questao[`alternativa_${letra.toLowerCase()}`]}
-        </label>
-      ))}
+      {letras.map((letra) => {
+        const textoAlternativa = questao[`alternativa_${letra.toLowerCase()}`];
+        const selecionado = respostaSelecionada === letra;
+
+        return (
+          <p
+            key={letra}
+            onClick={() => setRespostaSelecionada(letra)}
+            className={`${styles.alternativa} ${
+              selecionado ? styles.selecionada : ""
+            }`}
+          >
+            {textoAlternativa}
+          </p>
+        );
+      })}
       <button onClick={verificarResposta} className={styles.button}>
         Responder
       </button>

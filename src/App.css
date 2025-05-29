@@ -10,10 +10,10 @@ button {
   padding: 0.5rem 1rem;
   background: linear-gradient(to right, #c7a24d 0%, #f5eba8 50%, #c7a24d 100%);
   color: black;
-  border: none;
+  border: 1px solid rgb(160, 160, 160);
   border-radius: 6px;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 500;
   box-shadow: 0 4px 8px rgba(170, 170, 170, 0.863);
   transition: background 0.3s ease, box-shadow 0.3s ease;
 }
@@ -41,6 +41,7 @@ input:focus {
 }
 
 .card {
+  border: 1px solid #888686;
   background: linear-gradient(to right, #c7a24d 0%, #f5eba8 50%, #c7a24d 100%);
   border-radius: 4px;
   padding: 1rem;
@@ -63,18 +64,17 @@ input:focus {
 }
 
 select {
-  width: 30%;
-  padding: 12px 12px;
+  width: 20%;
+  padding: 8px 8px;
   background-color: #fff;
   color: #333;
-  border: 1px solid #ccc;
+  border: 1px solid #888686;
   border-radius: 8px;
-  font-size: 16px;
+  font-size: 13px;
   cursor: pointer;
   outline: none;
   appearance: none; /* Remove o estilo padrão do select */
   transition: all 0.3s ease;
-  box-shadow: 0 4px 8px rgba(170, 170, 170, 0.863);
 }
 
 /* Foco no select */

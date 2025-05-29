@@ -7,12 +7,28 @@
   box-shadow: 0 4px 8px rgba(170, 170, 170, 0.863);
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  width: 80%;
+  width: 100%;
   margin-bottom: 1rem;
+  border: 1px solid #888686;
 }
 
 .cardQuestao:hover {
   box-shadow: 0 4px 8px rgba(223, 191, 8, 0.493);
+}
+
+.pesquisa {
+  padding: 0.5rem 1rem;
+  width: 100%;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 8px rgba(170, 170, 170, 0.863);
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.filtroDiv {
+  gap: 10px;
+  display: flex;
+  flex-direction: row;
 }
 
 .cardList {
@@ -33,15 +49,6 @@
 
 /* Respostas das questões */
 
-/* .container h2 {
-  font-size: 20px;
-  text-align: start;
-} */
-
-/* .container p {
-  font-size: 28px;
-} */
-
 .container .option {
   display: block;
   padding: 1rem;
@@ -52,13 +59,30 @@
   transition: background-color 0.2s, border-color 0.2s;
 }
 
-.option:hover {
-  background-color: #e0dd1a;
+.alternativa {
+  cursor: pointer;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.2s ease;
 }
 
-.selected {
-  background-color: #e0ba10;
-  border-color: #0f5132;
+.alternativa:hover {
+  background-color: #f5f5dc;
+}
+
+.selecionada {
+  background-color: #ffe58a;
+  border-color: #ffc107;
+}
+
+.bullet {
+  color: #555;
+  font-weight: bold;
+  margin-right: 0.5rem;
 }
 
 .hiddenRadio {

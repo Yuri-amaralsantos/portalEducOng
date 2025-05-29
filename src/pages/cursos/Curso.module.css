@@ -4,8 +4,14 @@
   max-width: 1000px;
 }
 
+.filtroDiv {
+  gap: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
 .pesquisa {
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   width: 100%;
   margin-bottom: 1rem;
   box-shadow: 0 4px 8px rgba(170, 170, 170, 0.863);
@@ -34,7 +40,7 @@
 .card p {
   margin: 0;
   font-size: 0.95rem;
-  color: #555;
+  font-weight: 300;
 }
 
 /* Pagina do curso */

@@ -17,12 +17,13 @@
 .navbarActions {
   display: flex;
   align-items: center;
+  gap: 1rem;
 }
 
 .navbarActions {
   display: flex;
   align-items: center;
-  margin-left: auto; /* <---- ADD THIS */
+  margin-left: auto;
 }
 
 .toggleButton {
@@ -56,17 +57,26 @@
 }
 
 .sidebar button {
-  margin-bottom: 1rem;
-  background: none;
-  color: black;
+  box-shadow: none;
   border: none;
+  background: none;
+  margin-bottom: 1rem;
+  color: black;
   text-align: left;
   font-size: 1rem;
   cursor: pointer;
 }
 
 .sidebar button:hover {
-  background: #ebe724;
+  font-weight: bolder;
+  background: linear-gradient(to right, #c7a24d 0%, #f5eba8 50%, #c7a24d 100%);
+  box-shadow: 0 4px 8px rgba(170, 170, 170, 0.863);
+}
+
+.activeButton {
+  border: 1px solid rgb(160, 160, 160) !important;
+  box-shadow: 0 4px 8px rgba(170, 170, 170, 0.863) !important;
+  font-weight: bolder;
 }
 
 .sidebarContainer {

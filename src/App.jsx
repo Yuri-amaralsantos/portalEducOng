@@ -18,6 +18,7 @@ import Sobre from "./pages/sobre/Sobre";
 import Jogo from "./pages/jogos/jogo";
 import JogosList from "./pages/jogos/listaJogos";
 import Privacidade from "./pages/sobre/Privacidade";
+import PublicLayout from "./components/publicLayout";
 import "./App.css";
 
 function App() {
@@ -27,20 +28,24 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
 
-      {/* Layout protegido com Navbar */}
-      <Route element={<ProtectedLayout />}>
+      {/* Layout com Navbar, visível para todos */}
+      <Route element={<PublicLayout />}>
         <Route path="/home" element={<Home />} />
-        <Route path="/privacidade" element={<Privacidade />} />
         <Route path="/sobre" element={<Sobre />} />
-        <Route path="/perfil" element={<Perfil />} />
+        <Route path="/privacidade" element={<Privacidade />} />
         <Route path="/cursos" element={<CursosList />} />
         <Route path="/curso/:id" element={<CursoView />} />
         <Route path="/aula/:id" element={<AulaView />} />
-        <Route path="/questoes/" element={<QuestoesList />} />
-        <Route path="/jogos" element={<JogosList />} />
-        <Route path="/jogos/:id" element={<Jogo />} />
+        <Route path="/questoes" element={<QuestoesList />} />
         <Route path="/questao/:id" element={<ResponderQuestao />} />
         <Route path="/questao/:nova" element={<ResponderQuestao />} />
+        <Route path="/jogos" element={<JogosList />} />
+        <Route path="/jogos/:id" element={<Jogo />} />
+      </Route>
+
+      {/* Rotas protegidas (exigem login) */}
+      <Route element={<ProtectedLayout />}>
+        <Route path="/perfil" element={<Perfil />} />
         <Route
           path="/admin"
           element={
