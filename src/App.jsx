@@ -18,7 +18,7 @@ import Sobre from "./pages/sobre/Sobre";
 import Jogo from "./pages/jogos/jogo";
 import JogosList from "./pages/jogos/listaJogos";
 import Privacidade from "./pages/sobre/Privacidade";
-import PublicLayout from "./components/publicLayout";
+import PublicLayout from "./components/PublicLayout";
 import "./App.css";
 
 function App() {
