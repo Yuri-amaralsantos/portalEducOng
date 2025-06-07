@@ -21,6 +21,6 @@ export const jogos = [
         nome: "Jogo de damas clássico",
         descricao: "Um jogo clássico de tabuleiro onde os jogadores capturam as peças na diagonal e quem capturas todas peças do adversário ganha",
         imagem: "https://img.itch.zone/aW1nLzIxNDA3OTYzLnBuZw==/315x250%23c/Zs9p1N.png",
-        embedUrl: "https://itch.io/embed-upload/13935059?color=333333",
+        embedUrl: "https://itch.io/embed-upload/13935100?color=333333",
     },
 ];
