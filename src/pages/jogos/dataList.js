@@ -13,7 +13,7 @@ export const jogos = [
         nome: "Jogo de Tabuleiro com questões",
         descricao: "Um jogo de tabuleiro com foco em acerta questões variadas. Você joga clicando no botão 'rolar dado' e depois responde as questões. O primeiro jogador a alcançar 6 pontos ganha.",
         imagem: "https://img.itch.zone/aW1nLzIxMzIzMjAwLnBuZw==/315x250%23c/s86IH7.png",
-        embedUrl: "https://itch.io/embed-upload/13822279?color=333333",
+        embedUrl: "https://itch.io/embed-upload/13930284?color=333333",
     },
 
     {
