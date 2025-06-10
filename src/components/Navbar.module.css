@@ -27,14 +27,11 @@
 }
 
 .toggleButton {
-  position: absolute;
-  left: 5px;
-  top: 1px;
-  border: none;
+  position: fixed;
   font-size: 14px;
   cursor: pointer;
-  z-index: 1000; /* bem acima do iframe */
-  display: block; /* visível no mobile */
+  z-index: 1000;
+  display: block;
 }
 
 @media (min-width: 900px) {
